@@ -1,0 +1,104 @@
+import java.util.*;
+public class ATMtransaction 
+{
+public static void main(String args[]) throws InterruptedException
+{
+    Scanner s1=new Scanner(System.in);
+    System.out.println("WELCOME TO NATIONAL BANK OF ATM");
+    int balance=0,withdraw,deposite;
+    int pin;
+    int lastPin=0;
+    int count=0;
+  
+   System.out.println("Please Enter your four digit Valid Pin for Trasaction");
+    pin=s1.nextInt();
+    
+    if(count!=0 && lastPin!=pin){
+     System.out.println("Invalid Pin for Trasaction"); 
+     
+    
+    }
+   while(true)
+   {
+    if(pin>999 && pin<10000)
+    {
+       
+        count++;
+        System.out.println("***************************************************");
+        System.out.println("Enter your choice");
+        System.out.println("Enter 1 for deposite Money");
+        System.out.println("Enter 2 for withdraw Money");
+        System.out.println("Enter 3 for check Balance");
+        System.out.println("Enter 4 for change the Pin");
+        System.out.println("Enter 5 for exit");
+        System.out.println("****************************************************");
+        
+        int n=s1.nextInt();
+         switch(n)
+         {
+             case 1:
+                 
+                 System.out.print("Please Enter money for to deposite:");
+                 deposite=s1.nextInt();
+                 balance=balance+deposite;
+                 System.out.println("your money Deposite Succesfully");
+                 System.out.println(" Available Balance= "+balance);
+                 break;
+                 
+             case 2:
+                 System.out.println("Please Enter money for to Withdraw:");
+                 withdraw=s1.nextInt();
+                 if(balance>withdraw)
+                 {
+                   balance=balance-withdraw;
+                    System.out.println(" Withdraw Succesfully");
+                 System.out.println(" Available Balance= "+balance);
+                 System.out.println("*******************************************");
+                 }
+                 else
+                 {
+                  System.out.println("Insufficient balance");
+                  
+                 }
+                 System.out.println(" ");
+                 break;
+                 
+                 
+             case 3:
+                 
+               System.out.println(" Available Balance= "+balance);
+               System.out.println(" ");
+               
+              // System.out.println("*********************************************");
+               break;
+             
+             case 4:
+                 
+                 System.out.println("Enter your new Pin Number");
+                 int npin=s1.nextInt();
+                 if(npin>999 && npin<10000)
+                 {
+                 
+                 System.out.println("Your pin is updated succesfully");
+                 lastPin=npin;
+                 Thread.sleep(10000);
+                 }
+                 
+                 break;
+                 
+             case 5:
+                 System.exit(0);
+                 
+         }
+       
+    }
+    
+}
+}
+}
+
+
+    
+
+  
+
